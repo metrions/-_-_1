@@ -21,7 +21,7 @@ int main(){
     while (!input.eof()){
         float d;
         input >> d;
-        x->el = d;
+        x->el = d; 
         x->next = new list;
         x->next->pred = x;
         x = x->next;
@@ -72,3 +72,4 @@ list* pop(list *head, float a){
     }
     return head;
 }
+// ЕБАЛРОТVSCODE
