@@ -17,9 +17,7 @@ int main(){
     input.open("file.txt");
     list *head = new list;
     list *x = new list;
-    head->next = new list;
-    head->next->pred = head;
-    x = head->next;
+    x = head;
     while (!input.eof()){
         float d;
         input >> d;
@@ -28,11 +26,8 @@ int main(){
         x->next->pred = x;
         x = x->next;
     }
-    x->next = new list;
-    x->next->pred = x;
-    x = x->next;
     vuvod(head);
-    head = pop(head, 2);
+    //head = pop(head, 2);
     head->pred->el;
     cout << "  " << endl;
     vuvod(head);
@@ -42,29 +37,9 @@ void vuvod(list *head){
     while (head->pred != NULL){
         head = head->pred;
     }
-    head = head->next;
-    while(head->next->next != NULL){
+    while(head->next != NULL){
         std::cout << head->el <<endl;
         head = head->next;
     }
 
-}
-
-list* pop(list *head, float a){
-    bool k = false;
-    while (head->pred != NULL){
-        head = head->pred;
-    }
-    head = head->next;
-    while(head->next->next != NULL){
-        if (head->el == a){
-            head->pred->next = head->next;
-            head->next->pred = head->pred;
-            head = head->next;
-            //delete head;
-        }
-        else{
-        head = head->next;}
-    }
-    return head;
 }
