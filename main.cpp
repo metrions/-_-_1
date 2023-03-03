@@ -37,6 +37,7 @@ void vuvod(list *head){
     while (head->pred != NULL){
         head = head->pred;
     }
+    head = head->next;
     while(head->next != NULL){
         std::cout << head->el <<endl;
         head = head->next;
@@ -54,7 +55,7 @@ list* pop(list *head, float a){
         head->pred = new list;
         delete tmp;
     }
-    while (head->next->next != NULL){   //между первым и вторым элементом
+    while (head->next != NULL){   //между первым и вторым элементом
         list* tmp = head;
         head = head->next;
         if (tmp->el == a){
@@ -63,12 +64,12 @@ list* pop(list *head, float a){
             delete tmp;
             }
     }
-    if (head->el == a){         //последний элемент
+    /*if (head->el == a){         //последний элемент
         list* tmp = head;
         head = head->pred;
         head->next = NULL;
         delete tmp;
         return head;
-    }
+    }*/
     return head;
 }
